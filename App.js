@@ -1,11 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import _ from "lodash";
 
 export default function App() {
-  const [value, setValue] = useState("A doctor a day keeps an apple away");
-  const [author, setAuthor] = useState("Rajas Gandhi");
+  const [value, setValue] = useState(
+    "Do what you can. Want what you have. Be who you are."
+  );
+  const [author, setAuthor] = useState("Forrest Church");
 
   const newone = async () => {
     const resp = await fetch("https://type.fit/api/quotes");
@@ -14,10 +16,51 @@ export default function App() {
     setValue(firstRandomElement.text);
     setAuthor(firstRandomElement.author);
   };
+
   return (
     <View style={styles.container}>
-      <Text>{value}</Text>
-      <Text>{author}</Text>
+      <Text
+        style={{
+          marginTop: "40%",
+          fontSize: 30,
+          position: "absolute",
+          top: 0,
+          fontStyle: "italic",
+        }}
+      >
+        Inspirin
+      </Text>
+      <Text
+        style={{
+          marginTop: "57%",
+          fontSize: 26,
+          position: "absolute",
+          top: 0,
+          fontStyle: "italic",
+          marginHorizontal: "10%"
+        }}
+      >
+        Inspiring you to do what makes you best
+      </Text>
+      <Text
+        style={{
+          marginHorizontal: "10%",
+          marginBottom: "10%",
+          fontSize: 24,
+          marginTop: "20%"
+        }}
+      >
+        {value}
+      </Text>
+      <Text
+        style={{
+          marginHorizontal: "10%",
+          marginBottom: "10%",
+          fontSize: 20,
+        }}
+      >
+        {author}
+      </Text>
       <TouchableOpacity
         style={{
           height: "8%",
@@ -40,7 +83,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#add8e6",
     alignItems: "center",
     justifyContent: "center",
   },
